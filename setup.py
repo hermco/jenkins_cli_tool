@@ -3,7 +3,6 @@ import setuptools
 setuptools.setup(
     name="jenkins_cli_tool",
     version="0.1.0",
-    url="TBD",
     author="Corentin Hermet",
     author_email="chermet@axway.com",
     description="Jenkins CLI Tool",
