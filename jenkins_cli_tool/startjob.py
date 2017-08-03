@@ -1,4 +1,3 @@
-from distutils.command import build
 import jenkins
 import pprint
 import click
@@ -6,6 +5,7 @@ from time import sleep
 import sys
 import getopt
 import ast
+import re
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -55,7 +55,7 @@ def startJob(jobName, login, pwd, server, port,parameters, wait):
                 pp.pprint(build_info)
 
 
-if __name__ == '__main__':
+def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:],
                                    "",
@@ -91,14 +91,16 @@ if __name__ == '__main__':
                    "--default")
             exit(0)
         elif opt in ("--default"):
-            login = "chermet"
-            pwd = "Shadow1995!!!"
             server = "jenkins-qa.lab.dubl.axway.int"
             port = "8080"
             jobName = "JenkinsCLITest-Corentin"
             parameters = {'THREADS': 'AAAA', 'IDK': 'value2'}
             wait = 5
     startJob(jobName, login, pwd, server, port, parameters,wait)
+
+if __name__ == '__main__':
+    main()
+
 
 
 #--login chermet --pwd Shadow1995!!! --server jenkins-qa.lab.dubl.axway.int --port 8080 --jobName JenkinsCLITest-Corentin --parameters "{'THREADS': 'AAAA', 'IDK': 'value2'}"
